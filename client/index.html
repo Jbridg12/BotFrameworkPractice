@@ -1,0 +1,167 @@
+<html>
+    <head>
+        <title>Volflix</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="container main">
+            <div class="banner">
+                <img src="https://cnec.ncsu.edu/wp-content/uploads/University-HorizRightLogo-RGB.png"/>
+            </div>
+
+            <h3>The VolBot Emulator</h3>
+            <p>The <strong>VolBot Emulator</strong> is a simple web interface that allows you to test chatbots built with the VolBot framework. VolBots support simple Waterfall dialogs with limited proactive functionality.</p>
+
+            <h5>How do I use this interface?</h5>
+            <p>
+                This interface allows you to communicate with chatbots. Type a message and then click the "Send" button. This interface allows you to simultaneously communicate as "Sam" and "Amanda". The chat windows for each of these users should allow them to have independent conversations.
+            </p>
+
+
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="sam-tab" data-toggle="tab" href="#sam" role="tab" aria-controls="sam" aria-selected="true">Chat as Sam</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="amanda-tab" data-toggle="tab" href="#amanda" role="tab" aria-controls="amanda" aria-selected="false">Chat as Amanda</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="sam" role="tabpanel" aria-labelledby="sam-tab">
+
+                <div style="margin-top: 15px">
+                    <div>
+                        <div class="row container d-flex justify-content-center">
+                            <div class="col-md-12">
+                                <div class="card card-bordered" style="border: 1px solid #333; border-radius: 5px">
+                                    <div class="card-header">
+                                        <h4 class="card-title"><strong>Chat</strong></h4>
+                                    </div>
+                                    <div class="sam-ps-container ps-container ps-theme-default ps-active-y" id="chat-content" style="overflow-y: scroll !important; height:400px !important;">
+                                        
+                                        <!-- <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
+                                            <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                                        </div>
+                                        <div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 2px;">
+                                            <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 2px;"></div>
+                                        </div> -->
+                                    </div>
+                                    <div class="publisher bt-1 border-light"> <img class="avatar avatar-xs" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="..."> <input class="publisher-input" type="text" placeholder="Write something"><a class="publisher-btn text-info" href="#" data-abc="true"><i class="fa fa-paper-plane"></i></a> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-pane fade show" id="amanda" role="tabpanel" aria-labelledby="amanda-tab">
+
+                <div style="margin-top: 15px">
+                    <div>
+                        <div class="row container d-flex justify-content-center">
+                            <div class="col-md-12">
+                                <div class="card card-bordered" style="border: 1px solid #333; border-radius: 5px">
+                                    <div class="card-header">
+                                        <h4 class="card-title"><strong>Chat</strong></h4>
+                                    </div>
+                                    <div class="amanda-ps-container ps-container ps-theme-default ps-active-y" id="chat-content" style="overflow-y: scroll !important; height:400px !important;">
+                                        
+                                        <!-- <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
+                                            <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                                        </div>
+                                        <div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 2px;">
+                                            <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 2px;"></div>
+                                        </div> -->
+                                    </div>
+                                    <div class="publisher bt-1 border-light"> <img class="avatar avatar-xs" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="..."> <input class="publisher-input" type="text" placeholder="Write something"><a class="publisher-btn text-info" href="#" data-abc="true"><i class="fa fa-paper-plane"></i></a> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+
+        </div>
+        <script src="js/jquery.3.3.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script>
+
+            $(".publisher-btn").click(function(e){
+                e.preventDefault();
+
+                // Get value.
+                var msg = $('.publisher-input:visible').val();
+                var time = new Date().toLocaleTimeString();
+                var user = $('.nav-link.active').text().replace("Chat as ", "");
+
+                if(msg === ""){
+                    alert("[ERROR] Can't send an empty message!");
+                    return;
+                }
+
+                // Generate an HTML element string
+                var sentMsg = '<div class="media media-chat media-chat-reverse"><div class="media-body"><p>'+msg+'</p><p class="meta"><time datetime="2018">'+time+'</time></p></div></div>';
+                $('.'+user.toLowerCase()+'-ps-container').append(sentMsg);
+                //$(".ps-container").animate({ scrollTop: $(".ps-container").height() }, "slow");
+
+                // Reset the input value
+                $('.publisher-input').val("");
+
+                // Send the POST request
+                $.post("http://localhost:9738", {
+                        'type': 'reactive',
+                        'user': user,
+                        'time': time,
+                        'msg' : msg
+                    }).done(function(data){
+                        console.log("Response from Server:");
+                        console.log(data);
+
+                        // Generate an HTML element string
+                        var receivedTime = new Date().toLocaleTimeString();
+                        var receivedResp = '<div class="media media-chat"><img class="avatar" src="bot.png" alt="..."><div class="media-body"><p>'+data['msg']+'</p><p class="meta"><time datetime="2021">'+receivedTime+'</time></p></div></div>';
+
+                        // Append to the container
+                        $('.'+user.toLowerCase()+'-ps-container').append(receivedResp);
+                        //$(".ps-container").animate({ scrollTop: $(".ps-container").height() }, "slow");
+                        
+                    }).fail(function(){
+                    alert("[ERROR] Can't connect to the Web Server at \"http://localhost:9738\"");
+                });
+            });
+
+            var intervalID = window.setInterval(pollProactiveMessages, 1000);
+            function pollProactiveMessages(){
+                var user = $('.nav-link.active').text().replace("Chat as ", "");
+                var time = new Date().toLocaleTimeString();
+
+                $.post("http://localhost:9738", {
+                        'type': 'proactive',
+                        'user': user,
+                        'time': time,
+                    }).done(function(data){
+                        console.log("Response from Server:");
+                        console.log(data);
+
+                        if(data['msg'] !== ''){
+                            // Generate an HTML element string
+                            var receivedTime = new Date().toLocaleTimeString();
+                            var receivedResp = '<div class="media media-chat"><img class="avatar" src="bot.png" alt="..."><div class="media-body"><p>'+data['msg']+'</p><p class="meta"><time datetime="2021">'+receivedTime+'</time></p></div></div>';
+
+                            // Append to the container
+                            $('.'+user.toLowerCase()+'-ps-container').append(receivedResp);
+                            //$(".ps-container").animate({ scrollTop: $(".ps-container").height() }, "slow");
+                        }
+                        
+                    }).fail(function(){
+                    console.log("[ERROR] Can't poll Web Server for proactive messages at \"http://localhost:9738\"");
+                });
+            }
+        </script>
+    </body>
+</html>
